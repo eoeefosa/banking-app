@@ -1,0 +1,13 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "cardType": "Card1",
+      "AccountNumber": "0209525729",
+      "AccountBalance": "$500,000.54",
+      "Ledger": "Ledger Balance",
+      "LedgerBalance": "$650,000.90",
+      "cliptext": "Saving"
+    }
+  ]
+}
