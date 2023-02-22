@@ -20,14 +20,14 @@ class PurchaseData extends StatelessWidget {
         bool confirm = await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("Are you sure you want to go back?"),
+            title: const Text("Are you sure you want to go back?"),
             actions: [
               TextButton(
-                child: Text("Cancel"),
+                child: const Text("Cancel"),
                 onPressed: () => Navigator.of(context).pop(false),
               ),
               TextButton(
-                child: Text("OK"),
+                child: const Text("OK"),
                 onPressed: () => Navigator.of(context).pop(true),
               ),
             ],
@@ -55,7 +55,7 @@ class PurchaseData extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Gap(40),
+              const Gap(40),
               Card(
                 color: Colors.white,
                 child: SizedBox(
@@ -63,7 +63,7 @@ class PurchaseData extends StatelessWidget {
                   height: 60,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text("MTN Nigeria"), Image.asset("mtn.png")]),
+                      children: [const Text("MTN Nigeria"), Image.asset("mtn.png")]),
                 ),
               )
             ],

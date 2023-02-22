@@ -17,7 +17,6 @@ import 'package:flutter_banking_app/views/other_pages/purchase_data.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../utils/tile.dart';
 
 class Wallet extends StatelessWidget {
   const Wallet({Key? key}) : super(key: key);
@@ -48,7 +47,7 @@ class Wallet extends StatelessWidget {
                         const Text('Hi Tino',
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16)),
-                        Gap(3),
+                        const Gap(3),
                         Text('Welcome back',
                             style: TextStyle(
                                 color: Repository.cardColor(context),
@@ -229,7 +228,7 @@ class Wallet extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(10),
+              const Gap(10),
               Text(
                 "0209525729",
                 style: TextStyle(
@@ -238,7 +237,7 @@ class Wallet extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Gap(5),
+              const Gap(5),
               Text(
                 // TODO: design naira sign
                 accountbalance,
@@ -248,7 +247,7 @@ class Wallet extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Gap(20),
+              const Gap(20),
               Text(
                 "Ledger balance",
                 style: TextStyle(
@@ -257,7 +256,7 @@ class Wallet extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Gap(5),
+              const Gap(5),
               Text(
                 // TODO: design naira sign
                 ledgerbalance,

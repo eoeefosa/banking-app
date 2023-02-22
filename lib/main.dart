@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Roboto',
           primaryColor: Styles.primaryColor,
-          backgroundColor: Styles.primaryColor,
+
+          // backgroundColor: Styles.primaryColor,
         ),
         home: const BottomNav(),
       ),

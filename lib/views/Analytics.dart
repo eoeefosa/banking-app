@@ -1,11 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_banking_app/json/transactions.dart';
 import 'package:flutter_banking_app/repo/repository.dart';
 import 'package:flutter_banking_app/utils/layouts.dart';
 import 'package:gap/gap.dart';
-import 'dart:math' as math;
 
 import 'package:intl/intl.dart';
 
