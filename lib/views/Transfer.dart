@@ -4,6 +4,8 @@ import 'package:flutter_banking_app/utils/layouts.dart';
 import 'package:gap/gap.dart';
 
 import '../utils/smallcards.dart';
+import 'other_pages/purchase_data.dart';
+import 'other_pages/transfer/transferTootherbanks.dart';
 
 class Transfer extends StatelessWidget {
   const Transfer({Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class Transfer extends StatelessWidget {
     return Scaffold(
         backgroundColor: Repository.bgColor(context),
         appBar: AppBar(
-          foregroundColor: Colors.black,
+          // foregroundColor: Colors.black,
           // leading: const Icon(
           //   Icons.bubble_chart,
           //   color: Colors.black,
@@ -71,42 +73,76 @@ class Transfer extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                children: const [
-                  SmallCards(
-                    cardcolor: Colors.green,
-                    color: Colors.white,
-                    icon: Icons.people,
-                    text: "Other Bank\nTransfer",
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const TransferToOther(),
+                        ),
+                      );
+                    },
+                    child: const SmallCards(
+                      cardcolor: Colors.green,
+                      color: Colors.white,
+                      icon: Icons.people,
+                      text: "Other Bank\nTransfer",
+                    ),
                   ),
-                  SmallCards(
-                    cardcolor: Colors.white,
-                    color: Color.fromARGB(255, 17, 43, 66),
-                    icon: Icons.people,
-                    text: "Own Account\nTransfer",
+                  InkWell(
+                    onTap: () {},
+                    child: const SmallCards(
+                      cardcolor: Colors.white,
+                      color: Color.fromARGB(255, 17, 43, 66),
+                      icon: Icons.people,
+                      text: "Own Account\nTransfer",
+                    ),
                   ),
-                  SmallCards(
-                    cardcolor: Colors.white,
-                    color: Color.fromARGB(255, 17, 43, 66),
-                    icon: Icons.swap_horiz,
-                    text: "Transfer to\nNPF MFB",
+                  InkWell(
+                    onTap: () {},
+                    child: const SmallCards(
+                      cardcolor: Colors.white,
+                      color: Color.fromARGB(255, 17, 43, 66),
+                      icon: Icons.swap_horiz,
+                      text: "Transfer to\nNPF MFB",
+                    ),
                   ),
-                  SmallCards(
-                    cardcolor: Colors.white,
-                    color: Color.fromARGB(255, 17, 43, 66),
-                    icon: Icons.phone_android,
-                    text: "Mobile\nTop-up",
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>
+                              const PurchaseData(),
+                        ),
+                      );
+                    },
+                    child: const SmallCards(
+                      cardcolor: Colors.white,
+                      color: Color.fromARGB(255, 17, 43, 66),
+                      icon: Icons.phone_android,
+                      text: "Mobile\nTop-up",
+                    ),
                   ),
-                  SmallCards(
-                    cardcolor: Colors.white,
-                    color: Color.fromARGB(255, 17, 43, 66),
-                    icon: Icons.payment,
-                    text: "Pay\nBills",
+                  InkWell(
+                    onTap: () {},
+                    child: const SmallCards(
+                      cardcolor: Colors.white,
+                      color: Color.fromARGB(255, 17, 43, 66),
+                      icon: Icons.payment,
+                      text: "Pay\nBills",
+                    ),
                   ),
-                  SmallCards(
-                    cardcolor: Colors.white,
-                    color: Color.fromARGB(255, 17, 43, 66),
-                    icon: Icons.history,
-                    text: "Tansaction\nHistory",
+                  InkWell(
+                    onTap: () {},
+                    child: const SmallCards(
+                      cardcolor: Colors.white,
+                      color: Color.fromARGB(255, 17, 43, 66),
+                      icon: Icons.history,
+                      text: "Tansaction\nHistory",
+                    ),
                   ),
                 ],
               ),

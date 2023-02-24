@@ -17,7 +17,6 @@ import 'package:flutter_banking_app/views/other_pages/purchase_data.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-
 class Wallet extends StatelessWidget {
   const Wallet({Key? key}) : super(key: key);
 
@@ -35,7 +34,7 @@ class Wallet extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             children: [
-              Gap(getProportionateScreenHeight(50)),
+              Gap(getProportionateScreenHeight(30)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Row(
@@ -71,7 +70,7 @@ class Wallet extends StatelessWidget {
                   ],
                 ),
               ),
-              const Gap(25),
+              Gap(getProportionateScreenHeight(10)),
               SizedBox(
                 height: size.height * 0.23,
                 width: 200,
@@ -82,7 +81,7 @@ class Wallet extends StatelessWidget {
                   ],
                 ),
               ),
-              const Gap(15),
+              Gap(getProportionateScreenHeight(10)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -90,14 +89,13 @@ class Wallet extends StatelessWidget {
                   (index) => builddot(index, context),
                 ),
               ),
-              const Gap(20),
               const Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
                 child: Text(
                   "Banking Links",
                   style: TextStyle(
                       color: Color.fromRGBO(98, 90, 140, 1),
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -105,6 +103,7 @@ class Wallet extends StatelessWidget {
                 crossAxisCount: 4,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
+                axisDirection: AxisDirection.down,
                 children: [
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
@@ -210,7 +209,7 @@ class Wallet extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       child: Container(
         width: size.width * 0.92,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
           // color: Repository.cardColor2A(context),
@@ -224,48 +223,79 @@ class Wallet extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Gap(10),
-              Text(
-                "0209525729",
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // const Gap(10),
+                  Text(
+                    "0209525729",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.7),
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    accountbalance,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Gap(5),
+                  Text(
+                    "Ledger balance",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.7),
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    ledgerbalance,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-              const Gap(5),
-              Text(
-                // TODO: design naira sign
-                accountbalance,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Gap(20),
-              Text(
-                "Ledger balance",
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Gap(5),
-              Text(
-                // TODO: design naira sign
-                ledgerbalance,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Card(
+                    color: Colors.transparent,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                      child: Text(
+                        "Savings +",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.white,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),

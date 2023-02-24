@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_app/repo/repository.dart';
+import 'package:flutter_banking_app/utils/size_config.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/layouts.dart';
@@ -55,20 +56,74 @@ class PurchaseData extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Gap(40),
-              Card(
-                color: Colors.white,
-                child: SizedBox(
-                  width: size.width,
-                  height: 60,
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [const Text("MTN Nigeria"), Image.asset("mtn.png")]),
-                ),
+              Gap(getProportionateScreenHeight(50)),
+              Networkcard(
+                size: size,
+                name: 'MTN Nigeria',
+                link: "assets/images/mtn.png",
+              ),
+              Gap(getProportionateScreenHeight(10)),
+              Networkcard(
+                size: size,
+                name: 'Glo Nigeria',
+                link: "assets/images/glo_logo.jpg",
+              ),
+              Gap(getProportionateScreenHeight(10)),
+              Networkcard(
+                size: size,
+                name: 'Airtel Nigeria',
+                link: "assets/images/airtel.jpg",
+              ),
+              Gap(getProportionateScreenHeight(10)),
+              Networkcard(
+                size: size,
+                name: 'Glo Nigeria',
+                link: "assets/images/9mobile.png",
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Networkcard extends StatelessWidget {
+  const Networkcard({
+    super.key,
+    required this.size,
+    required this.name,
+    required this.link,
+  });
+
+  final size;
+  final String name;
+  final String link;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      child: SizedBox(
+        width: size.width,
+        height: 60,
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              link,
+              fit: BoxFit.contain,
+            ),
+          )
+        ]),
       ),
     );
   }

@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Roboto',
           primaryColor: Styles.primaryColor,
+          useMaterial3: true,
 
           // backgroundColor: Styles.primaryColor,
         ),

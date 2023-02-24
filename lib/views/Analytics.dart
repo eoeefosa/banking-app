@@ -83,7 +83,6 @@ class _AnalyticsState extends State<Analytics> {
           const Gap(40),
           DropdownButton(
             dropdownColor: Colors.grey,
-            
             items: fruits.map((String value) {
               return DropdownMenuItem<String>(
                 value: value,
@@ -93,6 +92,42 @@ class _AnalyticsState extends State<Analytics> {
             onChanged: ((value) => value),
           ),
           const Gap(20),
+//  Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: Material(
+//         borderRadius: ,
+//         elevation: 0,
+//         color: Colors.red,
+//         shadowColor: Colors.blue,
+//         surfaceTintColor: Colors.black,
+//         type: MaterialType.card,
+//         child: Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: <Widget>[
+//               Text(
+//                 'Level 1',
+//                 style: Theme.of(context).textTheme.labelMedium,
+//               ),
+//               Text(
+//                 '6 dp',
+//                 style: Theme.of(context).textTheme.labelMedium,
+//               ),
+//                 Expanded(
+//                   child: Align(
+//                     alignment: Alignment.bottomRight,
+//                     child: Text(
+//                       '60%',
+//                       style: Theme.of(context).textTheme.bodySmall,
+//                     ),
+//                   ),
+//                 ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     ),
         ],
       ),
     );

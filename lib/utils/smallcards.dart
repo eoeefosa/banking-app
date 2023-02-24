@@ -22,8 +22,8 @@ class SmallCards extends StatelessWidget {
       color: cardcolor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: SizedBox(
-        height: 8,
-        width: 8,
+        height: 5,
+        width: 5,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
