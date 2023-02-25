@@ -22,8 +22,8 @@ class _BottomNavState extends State<BottomNav> {
     const Wallet(),
     const Transfer(),
     const Analytics(),
-    const Profile(),
     const Wallet(),
+    const Profile(),
   ];
 
   void _onItemTapped(int index) {

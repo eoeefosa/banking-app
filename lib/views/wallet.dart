@@ -17,6 +17,8 @@ import 'package:flutter_banking_app/views/other_pages/purchase_data.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import 'other_pages/contact_us/contact_us.dart';
+
 class Wallet extends StatelessWidget {
   const Wallet({Key? key}) : super(key: key);
 
@@ -117,11 +119,11 @@ class Wallet extends StatelessWidget {
                           ),
                         );
                       },
-                      child: const SmallCards(
+                      child: SmallCards(
                           icon: Icons.swap_horiz,
                           color: Colors.white,
                           text: "Fund\nTransfer",
-                          cardcolor: Colors.green),
+                          cardcolor: Repository.fundColor(context)),
                     ),
                   ),
                   StaggeredGridTile.count(
@@ -137,30 +139,41 @@ class Wallet extends StatelessWidget {
                           ),
                         );
                       },
-                      child: const SmallCards(
+                      child: SmallCards(
                           icon: Icons.phone_android,
                           color: Colors.white,
                           text: "Purchase\nData",
-                          cardcolor: Colors.blue),
+                          cardcolor: Repository.puchaseColor(context)),
                     ),
                   ),
-                  const StaggeredGridTile.count(
+                  StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 3,
                     child: SmallCards(
                         icon: Icons.history_sharp,
                         color: Colors.white,
                         text: "Transaction\nHistory",
-                        cardcolor: Colors.yellow),
+                        cardcolor: Repository.transactionColor(context)),
                   ),
-                  const StaggeredGridTile.count(
+                  StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: SmallCards(
-                        icon: Icons.call,
-                        color: Colors.white,
-                        text: "Contact\nUs",
-                        cardcolor: Colors.purple),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) =>
+                                const ContactUs(),
+                          ),
+                        );
+                      },
+                      child: SmallCards(
+                          icon: Icons.call,
+                          color: Colors.white,
+                          text: "Contact\nUs",
+                          cardcolor: Repository.contactColor(context)),
+                    ),
                   ),
                 ],
               ),
@@ -186,7 +199,7 @@ class Wallet extends StatelessWidget {
     );
   }
 
-  Card topcard(size, BuildContext context) {
+  Container topcard(size, BuildContext context) {
     String naira = '\u20A6';
 
     CurrencyFormatterSettings nairaSettings = CurrencyFormatterSettings(
@@ -204,100 +217,105 @@ class Wallet extends StatelessWidget {
     String ledgerbalance =
         CurrencyFormatter.format(amountLedger, nairaSettings);
 
-    return Card(
-      elevation: 2.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      child: Container(
-        width: size.width * 0.92,
-        padding: const EdgeInsets.all(5.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          // color: Repository.cardColor2A(context),
-          gradient: LinearGradient(
-            colors: [
-              Repository.cardColor2A(context),
-              Repository.cardColor2B(context),
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.topRight,
-          ),
+    return Container(
+      width: size.width * 0.92,
+      padding: const EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15.0),
+        // boxShadow: const <BoxShadow>[
+        //   BoxShadow(
+        //       color: Colors.black54,
+        //       blurRadius: 15.0,
+        //       offset: Offset(0.0, 0.95))
+        // ],
+        // color: Repository.cardColor2A(context),
+        gradient: LinearGradient(
+          colors: [
+            Repository.cardColor2A(context),
+            // Repository.cardColor2A(context),
+            Repository.cardColor2B(context),
+          ],
+          begin: Alignment.bottomLeft,
+          end: Alignment.topRight,
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // const Gap(10),
-                  Text(
-                    "0209525729",
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // const Gap(10),
+                Text(
+                  "0209525729",
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  accountbalance,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Gap(5),
+                Text(
+                  "Ledger balance",
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  ledgerbalance,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Card(
+                  color: Colors.transparent,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                    child: Text(
+                      " SAVINGS + ",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 12),
                     ),
                   ),
-                  Text(
-                    accountbalance,
-                    style: const TextStyle(
+                ),
+                Spacer(),
+                CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  foregroundColor: Colors.white,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.add,
                       color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Gap(5),
-                  Text(
-                    "Ledger balance",
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    ledgerbalance,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Card(
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                      child: Text(
-                        "Savings +",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Spacer(),
-                  CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Colors.white,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );

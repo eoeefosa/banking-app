@@ -14,6 +14,34 @@ class Repository {
     return vm.isDark == true ? Styles.greenColor : Styles.blueColor;
   }
 
+  static Color fundColor(BuildContext context) {
+    final vm = context.watch<ViewModel>();
+    return vm.isDark == true
+        ? Styles.fundTransferCardColorD
+        : Styles.fundTransferCardColor1;
+  }
+
+  static Color puchaseColor(BuildContext context) {
+    final vm = context.watch<ViewModel>();
+    return vm.isDark == true
+        ? Styles.purchaseCardColorD
+        : Styles.purchaseCardColor1;
+  }
+
+  static Color transactionColor(BuildContext context) {
+    final vm = context.watch<ViewModel>();
+    return vm.isDark == true
+        ? Styles.transactionCardColorD
+        : Styles.transactionCardColor1;
+  }
+
+  static Color contactColor(BuildContext context) {
+    final vm = context.watch<ViewModel>();
+    return vm.isDark == true
+        ? Styles.contactCardColorD
+        : Styles.contactCardColor1;
+  }
+
   static Color cardColor3A(BuildContext context) {
     final vm = context.watch<ViewModel>();
     return vm.isDark == true ? Styles.blueColor : Styles.cyanblue;
@@ -38,7 +66,7 @@ class Repository {
 
   static Color sliderColor1A(BuildContext context) {
     final vm = context.watch<ViewModel>();
-    return vm.isDark == true ? Styles.cyanbluesl : Styles.cyanbluesl;
+    return vm.isDark == true ? Styles.accentColor : Styles.cyanbluesl;
   }
 
   static Color cardColor2B(BuildContext context) {
