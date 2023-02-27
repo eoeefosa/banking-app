@@ -1,6 +1,6 @@
 # banking_app
 
-##NIGERIA POLISH FUND APP CLONE
+## NIGERIA POLISH FUND APP CLONE
 
 
 ![Screenshot_1676876888](https://user-images.githubusercontent.com/84554840/221472850-f39cb4df-1f6b-4d5b-af2c-5a4c0a90f72c.jpg)
